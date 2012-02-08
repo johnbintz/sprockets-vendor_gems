@@ -13,6 +13,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = '0.1.0'
 
-  gem.required_rubygems_version = '1.8.0'
+  gem.required_rubygems_version = '>= 1.8.0'
 end
 
