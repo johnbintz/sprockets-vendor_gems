@@ -12,10 +12,11 @@ end
 ```
 
 or get an Environment with those paths in there already:
+
 ``` ruby
 require 'sprockets-vendor_gems'
 
-env = Sprockets::EnvironmentWithVendoredGems.new('.')
+env = Sprockets::EnvironmentWithVendoredGems.new
 ```
 
 Yeah!
