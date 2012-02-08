@@ -12,5 +12,7 @@ Gem::Specification.new do |gem|
   gem.name          = "sprockets-vendor_gems"
   gem.require_paths = ["lib"]
   gem.version       = '1.0.0'
+
+  gem.required_rubygems_version = '1.8.0'
 end
 
