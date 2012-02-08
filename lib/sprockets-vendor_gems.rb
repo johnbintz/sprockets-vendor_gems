@@ -1,4 +1,5 @@
-require "sprockets"
+require 'sprockets'
+require 'rubygems'
 
 module ::Sprockets
   class << self
