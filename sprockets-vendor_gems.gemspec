@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "sprockets-vendor_gems"
   gem.require_paths = ["lib"]
-  gem.version       = '1.0.0'
+  gem.version       = '0.1.0'
 
   gem.required_rubygems_version = '1.8.0'
 end
