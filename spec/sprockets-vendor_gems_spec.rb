@@ -17,7 +17,7 @@ describe Sprockets do
     before do
       paths.each { |path| FileUtils.mkdir_p path }
 
-      Gem::Specification.stubs(:each).yields(gemspec)
+      Sprockets::GemEnvironment.stubs(:each).yields(gemspec)
     end
 
     subject { described_class.find_gem_vendor_paths }
