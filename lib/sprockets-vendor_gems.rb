@@ -9,7 +9,7 @@ module ::Sprockets
 
     paths = []
 
-    Gem::Specification.each do |gemspec|
+    GemEnvironment.each do |gemspec|
       options[:paths].product(for_types).each do |base_dir, type|
         path = File.join(gemspec.gem_dir, base_dir, "assets", type.to_s)
 
@@ -25,6 +25,20 @@ module ::Sprockets
       super(*args)
 
       Sprockets.find_gem_vendor_paths.each { |path| append_path(path) }
+    end
+  end
+
+  class GemEnvironment
+    extend Enumerable
+
+    def self.gemspecs
+      Gem.loaded_specs.map(&:last)
+    end
+
+    def self.each(&block)
+      return enum_for(:each) unless block_given?
+
+      gemspecs.each {|spec| yield spec }
     end
   end
 end

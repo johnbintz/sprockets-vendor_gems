@@ -13,10 +13,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = '0.1.1'
 
-  gem.required_rubygems_version = '>= 1.8.0'
-
   gem.add_dependency 'sprockets'
 
+  gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'mocha'
   gem.add_development_dependency 'fakefs'
