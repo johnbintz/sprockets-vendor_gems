@@ -2,10 +2,18 @@ require 'sprockets'
 require 'rubygems'
 
 module ::Sprockets
+  module VendorGems
+    class << self
+      attr_accessor :default_types
+    end
+
+    self.default_types = %w{javascripts stylesheets images}
+  end
+
   def self.find_gem_vendor_paths(options = {})
     options = { :paths => %w{vendor lib app} }.merge(options)
 
-    for_types = [ options[:for] || [ 'javascripts', 'stylesheets' ] ].flatten
+    for_types = [ options[:for] || ::Sprockets::VendorGems.default_types ].flatten
 
     paths = []
 
@@ -24,6 +32,12 @@ module ::Sprockets
     def initialize(*args)
       super(*args)
 
+      extend_with_vendored_gems
+    end
+  end
+
+  class Environment
+    def extend_with_vendored_gems
       Sprockets.find_gem_vendor_paths.each { |path| append_path(path) }
     end
   end
